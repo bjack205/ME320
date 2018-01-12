@@ -1,0 +1,98 @@
+% Some helpful commands for making CS223A handouts
+% Note: this file may not be exactly the same as
+% versions from previous years.
+
+% The document class options
+\documentclass[11pt,oneside,notitlepage]{article}
+
+% Packages
+\usepackage{epsfig}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{ulem}
+\usepackage{enumitem}
+
+% Preamble (style parameters, etc)
+\pagestyle{empty}
+
+\setlength{\paperwidth}{8.5in}
+\setlength{\paperheight}{11in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.5in}
+
+\setlength{\topmargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\oddsidemargin}{0in}
+
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+
+% Command to display the header
+\newcommand{\HandoutHeader}[1]{
+\noindent{\Large{\textbf{Introduction to Robotics (CS223A)}} \hfill Handout {#1}} \rule[1.0mm]{6.5in}{1mm} {\Large (Winter 2016/2017)}
+\newline\newline }
+
+\newcommand{\HomeworkHeader}[2]{
+\noindent{\newline\newline\newline\Large{\textbf{Introduction to Robotics (CS223A)}} \hfill Homework \#{#1}} \rule[1.0mm]{6.5in}{1mm}
+\\
+{\Large (Winter 2017/2018)} \hfill {\large Due: \textbf{#2}}\newline\newline }
+
+\newcommand{\HomeworkSolutionsHeader}[2]{
+\noindent{\newline\newline\newline\Large{\textbf{Introduction to Robotics (CS223A)}} \hfill Homework \#{#1} Solution} \rule[1.0mm]{6.5in}{1mm} {\Large (Winter 2017/2018)}\newline\newline }
+
+
+%\newcommand{\HomeworkSolutionsHeader}[1]{
+%{\Large{\bfseries Homework \#{#1} solutions}}
+%}
+
+\newcommand{\MidtermHeader}[1]{
+\noindent{\Large{\bfseries Introduction to Robotics (CS223A)}}\newline
+\rule[1.0mm]{6.5in}{1mm}
+{\Large (Winter 2017/2018)} \newline\newline\newline
+{\Large{\bfseries Midterm}} \hfill {\large Date: \textbf{#1}}\newline\newline\newline
+}
+
+\newcommand{\MidtermSolutionsHeader}[1]{
+\newline
+{\Large{\bfseries Midterm Solutions}} \hfill {\large Date: \textbf{#1}}\newline\newline\newline
+}
+
+\newcommand{\FinalHeader}[1]{
+\noindent{\Large{\bfseries Introduction to Robotics (CS223A)}}\newline
+\rule[1.0mm]{6.5in}{1mm}
+{\Large (Winter 2017/2018)} \newline\newline\newline
+{\Large{\bfseries Final}} \hfill {\large Date: \textbf{#1}}\newline\newline\newline
+}
+
+\newcommand{\FinalSolutionsHeader}[1]{
+\newline
+{\Large{\bfseries Final Solutions}} \hfill {\large Date: \textbf{#1}}\newline\newline\newline
+}
+
+% Helper commands
+
+\newcommand{\q}{\ensuremath{\V{}{q}}}
+\newcommand{\qdot}{\ensuremath{\V{}{\dot{q}}}}
+\newcommand{\qddot}{\ensuremath{\V{}{\ddot{q}}}}
+%\newcommand{\p}[2]{\ensuremath{{^{#1}{\bf P}}
+\newcommand{\F}[1]{\ensuremath{\{#1\}}}
+\newcommand{\R}[2]{\ensuremath{^{#1}_{#2}R}}
+\newcommand{\T}[2]{\ensuremath{^{#1}_{#2}T}}
+\newcommand{\U}[2]{\ensuremath{\hat{#1}_{#2}}}
+\newcommand{\V}[2]{\ensuremath{^{#1}{\bf #2}}}
+\newcommand{\degs}{\ensuremath{^\circ}}
+\newcommand{\inv}{\ensuremath{^{-1}}}
+\renewenvironment{matrix}{\left[\begin{array}}{\end{array}\right]}
+\newenvironment{Tmatrix}{\begin{matrix}{rrrr}}{\end{matrix}}
+\newcommand{\Col}[1]{\ensuremath{\begin{matrix}{r} #1 \end{matrix}}}
+\newcommand{\Row}[1]{\ensuremath{\begin{matrix}{rrr}#1 \end{matrix}}}
+\newcommand{\mat}[1]{\ensuremath{\begin{matrix}{rrr} #1 \end{matrix}}}
+\newcommand{\cross}{\ensuremath{\times}}
+\newcommand{\quant}[1]{\left({#1}\right)}
+\newcommand{\abs}[1]{|{#1}|}
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+% Figure commands
+\def\centerfig#1{\hbox to\columnwidth{\hss#1\hss}}
+\def\centertwofig#1#2{\centerfig{\hbox{\epsfig{figure=#1,width=\@dblcapwidth}\hskip\capskip\psfig{figure=#2,width=\@dblcapwidth}}}}

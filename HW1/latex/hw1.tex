@@ -1,0 +1,247 @@
+\input{223a.tex}
+
+\begin{document}
+
+\HomeworkHeader{1}{Wednesday, January 24, 4:00pm}
+
+
+{\bf Name \underline{\hspace{5cm}} }  \hspace{2cm}   {\bf SUNet ID \underline{\hspace{5cm}} }
+\vspace{0cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\small
+
+Instructions:
+\begin{itemize}
+
+\item {\bf Print this problem set and fill in your answers in the dedicated white space right below the question statement. Alternatively you may also submit a typewritten writeup. The assignments should be submitted via Gradescope.}
+
+\item Setup instructions for programming portions are detailed in the README file included with the code.
+
+
+\item Use abbreviations for trigonometric functions (e.g. $c\theta$ for $\cos(\theta)$,  
+$s_1$ or $s\theta_1$ for $\sin(\theta_1)$) in situations where it would be tedious 
+to repeatedly write $\sin$,$\cos$, etc.
+
+\item Unless instructed otherwise, leave square roots in symbolic
+form rather than writing out their decimal values.
+
+\item If you give a vector as an answer, make sure that you specify
+what frame it is given in (if it is not clear from context).  The same
+rule applies to rotation and transformation matrices.
+
+\end{itemize}
+\vspace{1ex}
+
+\normalsize
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}
+
+%%%%%% Question 1
+\item 
+The vector $\V{A}{P}$ is first rotated about $\U{X}{A}$ by $\theta$ degrees and then subsequently rotated about $\hat{Y}_{A}$ by $\phi$ degrees.
+
+\begin{enumerate}
+  \item[(a)]
+  Give the $3 \times 3$ rotation matrix that accomplishes these rotations in the given order. You may leave your answer as a product of matrices. 
+
+\vspace{5cm}
+
+
+  \item[(b)]
+  What is the rotated vector if $\V{A}{P} = [2,1,1]^T$, $\theta = 60^\circ$, and $\phi = 45^\circ$? Be sure to specify the frame of your vector representation.
+  \begin{enumerate}
+  \item 
+  Implement the appropriate functions in  \textit{rotations.py} (where it says \textit{HW1 Q1b: Rotation operators}). This part of the homework will be graded with Gradescope Autograder.
+  \item Use the above functions to compute the answer and give your answer on your solution paper.
+  \end{enumerate}
+
+
+\vspace{6cm}
+
+
+\end{enumerate}
+\vspace{1ex}
+
+%%%%%% Question 2
+\item
+A frame \{B\} is initially coincident with a frame \{A\}. First, we rotate \{B\} about $\hat{Z}_{B}$ by $\theta$ degrees. Next, we rotate the resulting frame \{B\} about $\hat{Y}_{B}$ by $\phi$. Finally, we rotate the resulting frame \{B\} about $\hat{X}_{B}$ by $\theta$ again.
+\begin{enumerate}[label=(\alph*)]
+  \item
+   Determine the $3 \times 3$ rotation matrix, $\R{A}{B}$, that will change the description of a vector $P$ in frame \{B\}, $\V{B}{P}$, to frame \{A\}, $\V{A}{P}$. You may leave your answer as a product of matrices. 
+   
+  
+\vspace{6cm}
+  \item
+What is the value of $\R{A}{B}$ if $\theta = 45^\circ$, $\phi = 60^\circ$? Implement the appropriate functions in \textit{rotations.py} (where it says \textit{HW1 Q2b: Euler and Fixed angles}) and use them to compute the answer. Handle representation singularities explicitly in your code. Similar to Q1, please give your answer on your solution paper.
+
+\vspace{3cm}
+  \item
+Compute the rotation matrix if $\phi = 90^\circ$? Can you achieve the same final \{B\} using a different set of Euler Angles? Explain why.
+\vspace{4cm}
+  \end{enumerate}
+\vspace{1ex}
+  
+\newpage
+  
+%%%%%% Question 3
+\item
+Frame \{A\} and frame \{B\} are fixed with respect to an inertial ground frame.
+
+\begin{enumerate}[label=(\alph*)]
+  \item Consider a velocity vector in frame \{A\}, $\V{A}{V}$. How will it change if
+we express it in frame \{B\}? Are $\V{A}{V}$ and $\V{B}{V}$ the same vector? Comment upon their magnitudes and directions. If they are different how can you transform one into the other?
+
+
+  \item
+Given 
+\begin{eqnarray*}
+\V{A}{V} = 
+  \begin{Tmatrix}
+    -4 \\
+    z \\
+    -6 \\
+  \end{Tmatrix}, 
+  \V{B}{V} = 
+  \begin{Tmatrix}
+   -6 \\
+    4 \\
+    1 \\
+  \end{Tmatrix},
+\end{eqnarray*}
+where $\V{A}{V}$, $\V{B}{V}$ have the same meaning as in part (a). Assume that transforming frame \{A\} into frame \{B\} requires translating \{A\} by $(0,2,1)$ and then rotating it $90^\circ$ about $\U{X}{A^\prime}$, and rotating the resulting frame $\theta$ about $\U{Z}{A^{\prime\prime}}$ (Note that $A^{\prime}$ and $A^{\prime\prime}$ are intermediate frames). Determine the value of $\theta$ and $z$.
+
+
+
+
+\end{enumerate}
+\vspace{1ex}
+
+\newpage
+
+%%%%%% Question 4
+\item
+Given the following transformation matrices:
+  \begin{eqnarray*}
+    T1 = \begin{Tmatrix}
+        \frac{\sqrt{3}}{2} &  -\frac{1}{2} & 0 & 1\\
+        -\frac{1}{2} & \frac{\sqrt{3}}{2} & 0 & 0\\
+        0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 1
+    \end{Tmatrix},
+    T2 = \begin{Tmatrix}
+        \frac{\sqrt{3}}{2} & 0 & -\frac{1}{2}  & -1\\
+        0 & 1 & 0 & 2\\
+        \frac{1}{2} &  0 &\frac{\sqrt{3}}{2} & 0\\
+        0 & 0 & 1 & 0
+    \end{Tmatrix}, 
+    \\
+    T3 = \begin{Tmatrix}
+        \frac{1}{2} &  \frac{\sqrt{3}}{2} & 0 & 1\\
+        -\frac{\sqrt{3}}{2} & \frac{1}{2} & 0 & 2\\
+        0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 1
+    \end{Tmatrix},
+    T4 = \begin{Tmatrix}
+        \frac{1}{2} &  \frac{\sqrt{3}}{2} & 0 & 0\\
+         \frac{\sqrt{3}}{2} & -\frac{1}{2} & 0 & 0\\
+        0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 1
+    \end{Tmatrix}.
+  \end{eqnarray*}
+
+    
+
+  
+  
+
+\begin{enumerate}[label=(\alph*)]
+    \item
+    Are T1, T2, T3 and T4 valid transformation matrices? Explain why or why not, and if there are multiple reasons why a matrix is invalid, include each. (We define a transformation matrix as a rotation and a translation, i.e. a "rigid body" transformation)
+    
+    \vspace{5cm}
+    
+    \item
+    Implement function \textit{mat\_to\_quat} in \textit{rotations.py} and find the Euler parameters that represent the rotations for the correct matrix (or matrices). 
+    
+    \vspace{5cm}
+    
+    \item
+   Also find the unit vector that defines the axis of rotation, and the angle of rotation for the correct matrix (or matrices). 
+\end{enumerate}
+\newpage
+
+%%%%%% Question 5
+\item
+  \begin{enumerate}
+  \item[(a)] Prove the following Lemma :
+  
+  \textit{For all rotations, at least one of the Euler parameters is greater than or equal to 1/2.}
+  
+  \vspace{5cm}
+
+  \item[(b)] When possible, determine the Euler parameters $\varepsilon_1, \varepsilon_2, \varepsilon_3, \varepsilon_4$ for the following
+    matrices:
+
+    \[
+    R_1 =
+    \left[
+      \begin{array}{rrr}
+	1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+      \end{array}
+    \right]
+    \hspace{0.5cm}
+    R_2 =
+    \left[
+      \begin{array}{rrr}
+	0 & -1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 1
+      \end{array}
+    \right]
+    \hspace{0.5cm}
+    R_3 =
+    \left[
+      \begin{array}{rrr}
+	1 & 1 & 1 \\
+    1 & 1 & 1 \\
+    1 & 1 & 1
+      \end{array}
+    \right]
+    \hspace{0.5cm}
+    R_4 =
+    \left[
+      \begin{array}{rrr}
+	-\frac{1}{2} &  \frac{1}{2} & \frac{1}{\sqrt{2}} \\
+        \frac{1}{2} & -\frac{1}{2} & \frac{1}{\sqrt{2}} \\
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & 0
+      \end{array}
+    \right]
+    \]
+
+  \end{enumerate}
+\newpage
+
+%%%%%% Question 6
+\item 
+\begin{enumerate}
+\item[(a)] Prove that 2D rotations commute.
+
+\vspace{9cm}
+
+\item[(b)] Prove that 3D rotations do not necessarily commute.
+
+\newpage
+
+\item[(c)] \textbf{[Extra Credit]} Prove that 3D infinitesimal rotations commute (clearly state the assumptions you make and their consequences).
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
+
