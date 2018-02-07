@@ -11,22 +11,25 @@ import numpy as np
 
 if __name__ == "__main__":
     # Problem 1b
+    print("Problem 1b")
     P = np.array([[2,1,1]]).T
     theta = math.radians(60)
     phi = math.radians(45)
-    Pnew = np.dot(np.dot(r.rot_y(phi),r.rot_x(theta)),P)
+    Pnew = np.dot(np.dot(r.rot_y(phi), r.rot_x(theta)), P)
     print(Pnew)
 
     # Problem 2b
+    print("Problem 2b")
     theta = math.radians(45)
     phi = math.radians(60)
     Rx = r.rot_x(theta)
     Ry = r.rot_y(phi)
     Rz = r.rot_z(theta)
     R2b = r.zyx_euler_angles_to_mat(theta, phi, theta)
-    print(R2b)
+    print(np.round(R2b,4))
 
     # Problem 2c
+    print("Problem 2c")
     phi = math.radians(90)
     R2c = r.zyx_euler_angles_to_mat(theta, phi, theta)
     print(np.round(R2c, 3))
@@ -35,6 +38,7 @@ if __name__ == "__main__":
     print(np.round(R2c2, 3))
 
     # Problem 3
+    print("\nProblem 3")
     H1 = np.zeros([4, 4])
     H1[0:3, 0:3] = np.eye(3)
     H1[:, -1] = [0, 2, 1, 1]
@@ -42,9 +46,8 @@ if __name__ == "__main__":
     H2 = np.zeros([4,4])
     H2[0:3, 0:3] = r.rot_x(math.radians(90))
     H2[3, 3] = 1
-    print(H2)
-
-    print(np.round(np.dot(H1, H2),3))
+    #print(H2)
+    print(np.round(np.dot(H1, H2), 3))
 
     # Problem 4
     print("\nProblem 4")
@@ -74,8 +77,35 @@ if __name__ == "__main__":
     q3 = r.mat_to_quat(T3[0:3, 0:3])
     #q4 = r.mat_to_quat(T4[0:3, 0:3])
     print(q3.array)
-    axis,angle = r.quat_to_axis_rotation(q3)
-    print("axis: %s, angle: %d" % (axis, angle))
+    axis, angle = r.quat_to_axis_rotation(q3)
+    print("axis: %s, angle: %f" % (axis, np.degrees(angle)))
 
+    # Problem 5
+    print("\nProblem 5")
+    R1 = np.array([
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1]])
+    R2 = np.array([
+        [0, -1, 0],
+        [1, 0, 0],
+        [0, 0, 1]])
+    R3 = np.array([
+        [1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 1]])
+    R4 = np.array([
+        [-1/2, 1/2, 1/math.sqrt(2)],
+        [1/2, -1/2, 1/math.sqrt(2)],
+        [1/math.sqrt(2), 1/math.sqrt(2), 0]])
 
+    q1 = r.mat_to_quat(R1)
+    q2 = r.mat_to_quat(R2)
+    q3 = r.mat_to_quat(R3)
+    q4 = r.mat_to_quat(R4)
+
+    print(q1.array())
+    print(q2.array())
+    print(q3.array())
+    print(q4.array())
 

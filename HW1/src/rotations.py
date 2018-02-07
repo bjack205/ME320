@@ -10,8 +10,7 @@ Created: December 2017
 """
 
 import numpy as np
-from math import cos, sin
-
+from math import cos, sin, atan2, pi
 
 #####################
 # Example functions #
@@ -144,7 +143,7 @@ def xyz_fixed_angles_to_mat(alpha, beta, gamma):
         3x3 numpy array that is a rotation matrix
     """
     # TODO: Replace following line with implementation
-    raise NotImplementedError("xyz_fixed_angles_to_mat not implemented")
+    return np.dot(np.dot(rot_z(gamma),rot_y(beta)),rot_x(alpha))
 
 
 def mat_to_zyx_euler_angles(R):
@@ -158,7 +157,16 @@ def mat_to_zyx_euler_angles(R):
         (alpha, beta, gamma): tuple of floats corresponding to the 3 ZYX Euler angles
     """
     # TODO: Replace following line with implementation
-    raise NotImplementedError("mat_to_zyx_euler_angles not implemented")
+    if abs(R[2, 2]) == 1:
+        beta = -sign(R[2, 2])*pi/2
+        gamma = 0
+        alpha = atan2(R[1, 2], R[0, 2])
+    else:
+        beta = atan2(-R[2, 0], np.sqrt(R[0, 0]**2 + R[2, 0]**2))
+        alpha = atan2(R[1, 0] / cos(beta), R[0, 0] / cos(beta))
+        gamma = atan2(R[2, 1] / cos(beta), R[3, 3] / cos(beta))
+    return np.array([alpha, beta, gamma])
+
 
 
 def sign(x):
