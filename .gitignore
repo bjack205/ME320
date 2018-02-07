@@ -99,7 +99,8 @@ ENV/
 .mypy_cache/
 
 # Class stuff
-.idea/*
-lib/*
-web/*
+.idea/
+web/
+latex/
+lib/
 
