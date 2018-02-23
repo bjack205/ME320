@@ -17,6 +17,7 @@ from links import *
 
 # TODO: Implement 3 functions below
 
+
 def linear_jacobian(links, q, pos_in_link=None, link_frame=-1):
     """
     Computes the linear Jacobian J_v for the current configuration q.
@@ -58,9 +59,12 @@ def linear_jacobian(links, q, pos_in_link=None, link_frame=-1):
     # TODO: Replace the following line with your code
     T0 = T_all_to_0(links, q)
     pe = T0[link_frame][0:3,3] + T0[link_frame][0:3,0:3].dot(pos_in_link)
+    # print(T0[link_frame].dot(np.vstack((pos_in_link,1))))
+    print(pe)
     for l in range(link_frame+1):
         z = T0[l][0:3,2]  # z-axis in world frame
         p = T0[l][0:3,3]  # translation in world frame
+        print(pe)
         J_v[:,l] = eps[0,l]*z + (1-eps[0,l])*np.cross(z, pe-p)
 
     return J_v
