@@ -124,7 +124,7 @@ if __name__ == "__main__":
         # Inverse kinematics
         "kp_inv_kin": 1,
         "k_joint_lim": 1,
-        "ik_regularizer": 0.1,
+        "ik_regularizer": 0.01,
         "dt": 1. / FREQ_CONTROL,
     }
 
@@ -136,7 +136,7 @@ if __name__ == "__main__":
 
     # TODO: Select robot
 
-    robot = q1_q2_robot()
+    # robot = q1_q2_robot()
     robot = q3_robot()
 
 
@@ -168,7 +168,7 @@ if __name__ == "__main__":
         # q_des  = np.array([0., np.pi/2.0, 0])
         # x_des = np.array([0.15, 0.25, 0.35])
         # q_des = q1_trajectory(t_sim)
-        x_des = q2_trajectory(t_sim)
+        # x_des = q2_trajectory(t_sim)
         x_des = q3_trajectory(t_sim)
 
 
